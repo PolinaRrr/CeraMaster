@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CeraMaster</string>
+    <string name="text_materials">Материалы</string>
+    <string name="text_calculations">Расчеты</string>
+    <string name="text_plans">Планы</string>
+    <string name="text_settings">Настройки</string>
+</resources>

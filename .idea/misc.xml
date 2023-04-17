@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/activity_main.xml" value="0.18489583333333334" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_calculations.xml" value="0.29791666666666666" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_caly_card.xml" value="0.29791666666666666" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_glaze_card.xml" value="0.29791666666666666" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_materials.xml" value="0.18489583333333334" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_clays.xml" value="0.25" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_clays_item.xml" value="0.29791666666666666" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_plans.xml" value="0.2" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_plans_item.xml" value="0.2634730538922156" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_settings.xml" value="0.29791666666666666" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2635" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

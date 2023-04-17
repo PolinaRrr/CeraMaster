@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/item_materials"
+            android:icon="@drawable/ic_my_materials"
+            android:title="@string/text_materials"/>
+        <item
+            android:id="@+id/item_calculations"
+            android:icon="@drawable/ic_calculations"
+            android:title="@string/text_calculations"/>
+
+        <item
+            android:id="@+id/item_plans"
+            android:icon="@drawable/ic_plans"
+            android:title="@string/text_plans"/>
+
+        <item
+            android:id="@+id/item_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/text_settings"/>
+
+    </group>
+
+</menu>
