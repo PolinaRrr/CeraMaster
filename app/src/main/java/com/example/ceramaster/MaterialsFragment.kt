@@ -18,11 +18,22 @@ class MaterialsFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMaterialsBinding.inflate(inflater, container, false)
+        binding.myClay.setOnClickListener(this)
         return binding.root
     }
 
+
+
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        when(v?.id){
+            R.id.my_clay-> {
+                activity?.supportFragmentManager?.beginTransaction()?.replace(
+                    R.id.fragment_container,
+                    MyClaysFragment.newInstance()
+                )?.addToBackStack("")?.commit()
+            }
+
+        }
     }
     companion object {
         @JvmStatic
