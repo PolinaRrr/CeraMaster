@@ -1,4 +1,4 @@
-package com.example.ceramaster
+package com.example.ceramaster.clay
 
 import android.view.LayoutInflater
 import android.view.View

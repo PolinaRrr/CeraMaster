@@ -1,4 +1,4 @@
-package com.example.ceramaster
+package com.example.ceramaster.clay
 
 data class ClayInfo (
     val nameClay:String,

@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.ceramaster.clay.MyClaysFragment
 import com.example.ceramaster.databinding.FragmentMaterialsBinding
+import com.example.ceramaster.glaze.MyGlazesFragment
 
 class MaterialsFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentMaterialsBinding? = null
@@ -19,6 +21,7 @@ class MaterialsFragment : Fragment(), View.OnClickListener {
     ): View {
         _binding = FragmentMaterialsBinding.inflate(inflater, container, false)
         binding.myClay.setOnClickListener(this)
+        binding.myGlaze.setOnClickListener(this)
         return binding.root
     }
 
@@ -30,6 +33,12 @@ class MaterialsFragment : Fragment(), View.OnClickListener {
                 activity?.supportFragmentManager?.beginTransaction()?.replace(
                     R.id.fragment_container,
                     MyClaysFragment.newInstance()
+                )?.addToBackStack("")?.commit()
+            }
+            R.id.my_glaze-> {
+                activity?.supportFragmentManager?.beginTransaction()?.replace(
+                    R.id.fragment_container,
+                    MyGlazesFragment.newInstance()
                 )?.addToBackStack("")?.commit()
             }
 

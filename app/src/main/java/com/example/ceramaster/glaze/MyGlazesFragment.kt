@@ -1,0 +1,41 @@
+package com.example.ceramaster.glaze
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.ceramaster.databinding.FragmentMyGlazesBinding
+
+class MyGlazesFragment: Fragment(), OnItemListClickListener {
+    private var _binding: FragmentMyGlazesBinding? = null
+    private val binding: FragmentMyGlazesBinding
+        get() = _binding!!
+
+    private val clayListAdapter: MyGlazesListAdapter by lazy {
+        MyGlazesListAdapter(this, baseGlazes)
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentMyGlazesBinding.inflate(inflater, container, false)
+        binding.glazeRecyclerView.adapter = clayListAdapter
+        clayListAdapter.setData(baseGlazes)
+        return binding.root
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = MyGlazesFragment()
+    }
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
+    }
+
+    override fun onItemClickListener(clay: GlazeInfo) {
+        TODO("Not yet implemented")
+    }
+}
