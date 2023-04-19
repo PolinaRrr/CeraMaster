@@ -12,7 +12,7 @@ class MyGlazesFragment: Fragment(), OnItemListClickListener {
     private val binding: FragmentMyGlazesBinding
         get() = _binding!!
 
-    private val clayListAdapter: MyGlazesListAdapter by lazy {
+    private val glazeListAdapter: MyGlazesListAdapter by lazy {
         MyGlazesListAdapter(this, baseGlazes)
     }
     override fun onCreateView(
@@ -21,8 +21,8 @@ class MyGlazesFragment: Fragment(), OnItemListClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMyGlazesBinding.inflate(inflater, container, false)
-        binding.glazeRecyclerView.adapter = clayListAdapter
-        clayListAdapter.setData(baseGlazes)
+        binding.glazeRecyclerView.adapter = glazeListAdapter
+        glazeListAdapter.setData(baseGlazes)
         return binding.root
     }
 
@@ -35,7 +35,7 @@ class MyGlazesFragment: Fragment(), OnItemListClickListener {
         super.onDestroy()
     }
 
-    override fun onItemClickListener(clay: GlazeInfo) {
+    override fun onItemClickListener(glaze: GlazeInfo) {
         TODO("Not yet implemented")
     }
 }

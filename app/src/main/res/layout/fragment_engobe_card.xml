@@ -16,13 +16,13 @@
         android:src="@drawable/ic_add" />
 
     <TextView
-        android:id="@+id/text_name_clay"
+        android:id="@+id/text_name_engobe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
 
         android:layout_margin="20dp"
-        android:text="Название глины"
+        android:text="Название ангоба"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -32,30 +32,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Название глины"
+        android:hint="Название ангоба"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name_clay" />
+        app:layout_constraintTop_toBottomOf="@+id/text_name_engobe" />
 
-    <TextView
-        android:id="@+id/text_ktr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="КТР  * 10-7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name" />
-
-    <EditText
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="КТР"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_ktr" />
 
     <TextView
         android:id="@+id/text_temp_max"
@@ -65,7 +46,7 @@
         android:text="Максимальная температура °С"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
     <EditText
         android:id="@+id/text_temp"
@@ -78,11 +59,11 @@
         app:layout_constraintTop_toBottomOf="@+id/text_temp_max" />
 
     <TextView
-        android:id="@+id/text_color_clay"
+        android:id="@+id/text_color_engobe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Цвет глины"
+        android:text="Цвет ангоба"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_temp" />
@@ -93,13 +74,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
-        android:hint="Цвет массы"
+        android:hint="Цвет ангноба"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_color_clay" />
+        app:layout_constraintTop_toBottomOf="@+id/text_color_engobe" />
 
     <TextView
-        android:id="@+id/text_weight_clay"
+        android:id="@+id/text_weight_engobe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -118,7 +99,7 @@
         android:hint="кг"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_weight_clay" />
+        app:layout_constraintTop_toBottomOf="@+id/text_weight_engobe" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

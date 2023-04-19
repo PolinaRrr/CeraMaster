@@ -7,16 +7,26 @@
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_calculations.xml" value="0.29791666666666666" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_caly_card.xml" value="0.29791666666666666" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_clay_card.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_engobe_card.xml" value="0.36666666666666664" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_glaze_card.xml" value="0.29791666666666666" />
-        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_materials.xml" value="0.18489583333333334" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_materials.xml" value="0.33" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_clays.xml" value="0.25" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_clays2.xml" value="0.35260416666666666" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_clays_item.xml" value="0.29791666666666666" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_engobes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_engobes_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_glazes.xml" value="0.36666666666666664" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_glazes_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_pigments.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_pigments_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_supplements.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_my_supplements_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_pigment_card.xml" value="0.36666666666666664" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_plans.xml" value="0.2" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_plans_item.xml" value="0.2634730538922156" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_settings.xml" value="0.29791666666666666" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_supplement_card.xml" value="0.25" />
+        <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/layout/fragment_supplements_card.xml" value="0.36666666666666664" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
         <entry key="..\:/Android_STD/CeraMaster/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2635" />
       </map>

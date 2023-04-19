@@ -1,5 +1,5 @@
 package com.example.ceramaster.glaze
 
 interface OnItemListClickListener {
-    fun onItemClickListener(clay: GlazeInfo)
+    fun onItemClickListener(glaze: GlazeInfo)
 }
