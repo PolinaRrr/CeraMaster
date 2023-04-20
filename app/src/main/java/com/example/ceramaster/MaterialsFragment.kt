@@ -11,6 +11,7 @@ import com.example.ceramaster.glaze.MyGlazesFragment
 import com.example.ceramaster.engobe.MyEngobesFragment
 import com.example.ceramaster.pigment.MyPigmentsFragment
 import com.example.ceramaster.supplement.MySupplementsFragment
+import com.example.ceramaster.probe.MyProbesFragment
 
 
 class MaterialsFragment : Fragment(), View.OnClickListener {
@@ -29,6 +30,7 @@ class MaterialsFragment : Fragment(), View.OnClickListener {
         binding.myEngobe.setOnClickListener(this)
         binding.myPigments.setOnClickListener(this)
         binding.mySupplements.setOnClickListener(this)
+        binding.myProbes.setOnClickListener(this)
         return binding.root
     }
 
@@ -63,6 +65,12 @@ class MaterialsFragment : Fragment(), View.OnClickListener {
                 activity?.supportFragmentManager?.beginTransaction()?.replace(
                     R.id.fragment_container,
                     MySupplementsFragment.newInstance()
+                )?.addToBackStack("")?.commit()
+            }
+            R.id.my_probes -> {
+                activity?.supportFragmentManager?.beginTransaction()?.replace(
+                    R.id.fragment_container,
+                    MyProbesFragment.newInstance()
                 )?.addToBackStack("")?.commit()
             }
 
