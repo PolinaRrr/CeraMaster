@@ -1,12 +1,18 @@
 package com.example.ceramaster.clay
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
+
+@Parcelize
+
 data class ClayInfo (
     val nameClay:String,
     val CTE:Double,
     val maxTemperature:Int,
     val colorClay:String,
     val massStock:Double
-    )
+    ): Parcelable,Serializable
 
 val baseClays = listOf(
 ClayInfo("Брауни",5.6,1180,"Красная",9.5),

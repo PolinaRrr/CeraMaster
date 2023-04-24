@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
     <EditText
-        android:id="@+id/textView3"
+        android:id="@+id/text_ktr_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -65,10 +65,10 @@
         android:text="Максимальная температура °С"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/text_ktr_val" />
 
     <EditText
-        android:id="@+id/text_temp"
+        android:id="@+id/text_temp_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -85,10 +85,10 @@
         android:text="Цвет глины"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp" />
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_val" />
 
     <EditText
-        android:id="@+id/text_color"
+        android:id="@+id/text_color_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -107,10 +107,10 @@
         android:text="Всего кг в запасе"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_color" />
+        app:layout_constraintTop_toBottomOf="@+id/text_color_val" />
 
     <EditText
-        android:id="@+id/text_total_kg"
+        android:id="@+id/text_total_kg_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

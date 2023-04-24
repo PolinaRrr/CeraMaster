@@ -1,5 +1,6 @@
 package com.example.ceramaster.clay
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,10 +34,12 @@ class MyClaysListAdapter(
 
     inner class ClayHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(clay: ClayInfo) {
+            Log.d("@@@@","MyClaysAda")
             FragmentMyClaysItemBinding.bind(itemView)
                 .apply { nameClay.text = clay.nameClay }
                 .run {
                     root.setOnClickListener {
+                        Log.d("@@@@","Вошли в адаптере")
                         onItemListClickListener.onItemClickListener(clay)
                     }
                 }
