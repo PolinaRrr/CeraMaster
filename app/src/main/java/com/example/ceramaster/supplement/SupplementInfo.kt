@@ -1,10 +1,15 @@
 package com.example.ceramaster.supplement
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
+
+@Parcelize
 data class SupplementInfo(
     val nameSupplement: String,
     val effectSupplement: String,
     val massStock: Int
-)
+): Parcelable, Serializable
 
 val baseSupplements = listOf(
     SupplementInfo("Каолин КР-1", "для лещадок", 3000),

@@ -1,11 +1,16 @@
 package com.example.ceramaster.engobe
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
+
+@Parcelize
 data class EngobeInfo(
     val nameEngobe: String,
     val maxTemperature: Int,
     val colorEngobe: String,
     val massStock: Double
-)
+) : Parcelable, Serializable
 
 val baseEngobes = listOf(
     EngobeInfo("Ангоб S-0620-53", 1250, "бирюзовый", 1.5),

@@ -1,12 +1,18 @@
 package com.example.ceramaster.glaze
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
+
+@Parcelize
+
 data class GlazeInfo(
     val nameGlaze: String,
     val CTE: Double,
     val maxTemperature: Int,
     val effectGlaze: String,
     val massStock: Double
-)
+): Parcelable, Serializable
 
 val baseGlazes = listOf(
     GlazeInfo("Сумерки в Мытищах GG-507", 7.1, 1230, "Флоат", 1.5),

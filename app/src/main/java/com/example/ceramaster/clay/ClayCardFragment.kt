@@ -34,10 +34,6 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         renderClayInfo(clay)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
      private fun renderClayInfo(clay:ClayInfo){
          binding.textName.setText(clay.nameClay)
          binding.textKtrVal.setText(clay.CTE.toString())

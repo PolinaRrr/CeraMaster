@@ -20,9 +20,9 @@ class MyClaysFragment : Fragment(), OnItemListClickListener {
         MyClaysListAdapter(this, baseClays)
     }
 
-    private val myClaysListViewModel: MyClaysListViewModel by lazy {
-        ViewModelProvider(this)[MyClaysListViewModel::class.java]
-    }
+//    private val myClaysListViewModel: MyClaysListViewModel by lazy {
+//        ViewModelProvider(this)[MyClaysListViewModel::class.java]
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,10 +37,6 @@ class MyClaysFragment : Fragment(), OnItemListClickListener {
     private fun getListClay(baseClays: List<ClayInfo>) {
         clayListAdapter.setData(baseClays)
         binding.recyclerView2.adapter = clayListAdapter
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {

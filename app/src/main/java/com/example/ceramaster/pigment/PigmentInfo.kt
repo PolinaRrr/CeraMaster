@@ -1,11 +1,17 @@
 package com.example.ceramaster.pigment
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
+
+@Parcelize
+
 data class PigmentInfo(
     val namePigment: String,
     val maxTemperature: Int,
     val colorPigment: String,
     val massStock: Int
-)
+): Parcelable, Serializable
 
 val basePigments = listOf(
     PigmentInfo("Пигмент JY-0091А Черный", 1260, "бирюзовый", 30),

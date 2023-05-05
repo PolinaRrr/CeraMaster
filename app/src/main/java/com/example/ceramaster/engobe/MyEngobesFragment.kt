@@ -5,6 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.ceramaster.KEY_BUNDLE_CLAY
+import com.example.ceramaster.R
+import com.example.ceramaster.clay.ClayCardFragment
+import com.example.ceramaster.clay.ClayInfo
 import com.example.ceramaster.databinding.FragmentMyEngobesBinding
 
 class MyEngobesFragment : Fragment(), OnItemListClickListener {
@@ -22,9 +26,12 @@ class MyEngobesFragment : Fragment(), OnItemListClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMyEngobesBinding.inflate(inflater, container, false)
-        binding.engobeRecyclerView.adapter = engobeListAdapter
-        engobeListAdapter.setData(baseEngobes)
+        getListEngobes(baseEngobes)
         return binding.root
+    }
+    private fun getListEngobes(baseEngobes: List<EngobeInfo>) {
+        binding.engobeRecyclerView.adapter = engobeListAdapter
+        engobeListAdapter.setData(com.example.ceramaster.engobe.baseEngobes)
     }
 
     companion object {
@@ -38,6 +45,10 @@ class MyEngobesFragment : Fragment(), OnItemListClickListener {
     }
 
     override fun onItemClickListener(engobe: EngobeInfo) {
-        TODO("Not yet implemented")
+        activity?.supportFragmentManager?.beginTransaction()?.replace(
+            R.id.fragment_container,
+            EngobeCardFragment.newInstance(Bundle().apply
+            { putParcelable(KEY_BUNDLE_CLAY, engobe) })
+        )?.addToBackStack("")?.commit()
     }
 }

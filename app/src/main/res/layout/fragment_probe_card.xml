@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/text_name"
+        android:id="@+id/text_name_probe_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -43,10 +43,10 @@
         android:text="Название глазурей"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name" />
+        app:layout_constraintTop_toBottomOf="@+id/text_name_probe_val" />
 
     <EditText
-        android:id="@+id/text_glaze_list"
+        android:id="@+id/text_glaze_list_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -64,10 +64,10 @@
         android:text="Температура обжига °С"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_glaze_list" />
+        app:layout_constraintTop_toBottomOf="@+id/text_glaze_list_val" />
 
     <EditText
-        android:id="@+id/text_temp"
+        android:id="@+id/text_temp_probe_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -87,10 +87,10 @@
         android:text="Комментарий"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp" />
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_probe_val" />
 
     <EditText
-        android:id="@+id/text_total_kg"
+        android:id="@+id/text_comment_probe_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

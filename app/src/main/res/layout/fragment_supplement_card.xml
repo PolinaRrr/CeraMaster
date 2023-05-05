@@ -19,8 +19,6 @@
         android:id="@+id/text_name_supplement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-
         android:layout_margin="20dp"
         android:text="Название добавки"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/text_name"
+        android:id="@+id/text_name_supplement_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -38,25 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_name_supplement" />
 
 
-    <TextView
-        android:id="@+id/text_temp_max"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Максимальная температура °С"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
-    <EditText
-        android:id="@+id/text_temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Макс.температура"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp_max" />
 
     <TextView
         android:id="@+id/text_purpose_supplement"
@@ -66,10 +46,10 @@
         android:text="Назначение добавки"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp" />
+        app:layout_constraintTop_toBottomOf="@+id/text_name_supplement_val" />
 
     <EditText
-        android:id="@+id/text_purpose"
+        android:id="@+id/text_purpose_supplement_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -88,10 +68,10 @@
         android:text="Всего г в запасе"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_purpose" />
+        app:layout_constraintTop_toBottomOf="@+id/text_purpose_supplement_val" />
 
     <EditText
-        android:id="@+id/text_total_g"
+        android:id="@+id/text_total_g_supplement_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
