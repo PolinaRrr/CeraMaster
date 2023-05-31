@@ -1,17 +1,18 @@
 package com.example.ceramaster.clay
 
-import android.view.ViewConfiguration.get
+
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.MutableLiveData
-
-
+import com.example.ceramaster.room.ClayRepository
+import com.example.ceramaster.room.ClayTypeConverters
 
 class MyClaysListViewModel : ViewModel() {
-//    private val myClaysRepository = MyClaysRepository.get()
-//    val clays = myClaysRepository.getListMyClays()
-//    private val clayCardLiveData:MutableLiveData<ClayInfo> = MyClaysRepository().getListMyClays()
-//
-//    fun getMyClayList(): List<ClayInfo> {
-//        return clayCardLiveData
-//    }
+
+    private val clayRepository = ClayRepository.get()
+    val claysLiveData = clayRepository.getClays()
+
+    fun addClay(clayInfo: ClayInfo){
+        clayRepository.addClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
+    }
+
+
 }

@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ceramaster.databinding.FragmentMyClaysItemBinding
+import com.example.ceramaster.glaze.OnItemListClickListener
 
 
 class MyClaysListAdapter(
-    private val onItemListClickListener: OnItemListClickListener,
-    private var data: List<ClayInfo> = baseClays
+    private val onItemListClickListener: MyClaysFragment,
+    private var data: List<ClayInfo> = listOf()
 ) : RecyclerView.Adapter<MyClaysListAdapter.ClayHolder>() {
 
     fun setData(data: List<ClayInfo>) {
@@ -39,10 +40,12 @@ class MyClaysListAdapter(
                 .apply { nameClay.text = clay.nameClay }
                 .run {
                     root.setOnClickListener {
-                        Log.d("@@@@","Вошли в адаптере")
                         onItemListClickListener.onItemClickListener(clay)
                     }
                 }
+
+
         }
+
     }
 }

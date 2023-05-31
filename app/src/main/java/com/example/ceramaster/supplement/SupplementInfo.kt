@@ -11,7 +11,7 @@ data class SupplementInfo(
     val massStock: Int
 ): Parcelable, Serializable
 
-val baseSupplements = listOf(
+val baseSupplements = mutableListOf(
     SupplementInfo("Каолин КР-1", "для лещадок", 3000),
     SupplementInfo("Глинозем Г-00",  "для лещадок", 2000),
     SupplementInfo("Dolapix G10", "дефлакулянт", 250),

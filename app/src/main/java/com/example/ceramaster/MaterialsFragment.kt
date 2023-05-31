@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.ceramaster.clay.ClayCardFragment
 import com.example.ceramaster.clay.MyClaysFragment
 import com.example.ceramaster.databinding.FragmentMaterialsBinding
 import com.example.ceramaster.glaze.MyGlazesFragment
@@ -86,5 +87,7 @@ class MaterialsFragment : Fragment(), View.OnClickListener {
         _binding = null
         super.onDestroy()
     }
+
+
 
 }

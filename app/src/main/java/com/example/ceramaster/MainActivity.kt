@@ -2,9 +2,11 @@ package com.example.ceramaster
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ceramaster.clay.ClayCardFragment
 import com.example.ceramaster.databinding.ActivityMainBinding
+import com.example.ceramaster.clay.MyClaysFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),MyClaysFragment.Callbacks {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,4 +48,13 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
+    override fun onClaySelected(id: Int?) {
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fragment_container,
+            ClayCardFragment.newInstance(id))
+            .addToBackStack("")
+            .commit()
+    }
+
 }

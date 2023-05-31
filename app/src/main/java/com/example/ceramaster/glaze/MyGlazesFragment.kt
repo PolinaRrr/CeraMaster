@@ -16,7 +16,7 @@ class MyGlazesFragment: Fragment(), OnItemListClickListener {
         get() = _binding!!
 
     private val glazeListAdapter: MyGlazesListAdapter by lazy {
-        MyGlazesListAdapter(this, baseGlazes)
+        MyGlazesListAdapter(this)
     }
     override fun onCreateView(
         inflater: LayoutInflater,

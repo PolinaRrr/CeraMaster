@@ -9,7 +9,7 @@ import com.example.ceramaster.databinding.FragmentMyGlazesItemBinding
 
 class MyGlazesListAdapter(
     private val onItemListClickListener: OnItemListClickListener,
-    private var data: List<GlazeInfo> = baseGlazes
+    private var data: List<GlazeInfo> = listOf()
 ) : RecyclerView.Adapter<MyGlazesListAdapter.GlazeHolder>() {
 
     fun setData(data: List<GlazeInfo>) {
