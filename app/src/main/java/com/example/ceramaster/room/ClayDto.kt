@@ -19,9 +19,9 @@ data class ClayDto(
     val manufacturer: String? = null,
     val minTemp: Int? = null,
     val maxTemp: Int,
-    val CTE: Double,
+    val CTE: Double? = null,
     val waterAbsorption: Double? = null,
-    val color: String,
+    val color: String? = null,
     val massStock: Double
 ) : Parcelable
 

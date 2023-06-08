@@ -61,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:inputType="numberDecimal"
         android:hint="КТР"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:hint="Макс.температура"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_temp_max" />
@@ -125,6 +127,7 @@
         android:layout_margin="20dp"
         android:layout_marginTop="29dp"
         android:hint="кг"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_weight_clay" />

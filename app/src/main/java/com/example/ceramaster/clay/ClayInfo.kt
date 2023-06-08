@@ -11,9 +11,9 @@ data class ClayInfo(
 
     val id:Int? = null,
     val nameClay: String,
-    val CTE: Double,
+    val CTE: Double? = null,
     val maxTemperature: Int,
-    val colorClay: String,
+    val colorClay: String? = null,
     val massStock: Double
 ) : Parcelable, Serializable
 

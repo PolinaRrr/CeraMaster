@@ -20,7 +20,7 @@ import java.util.*
 
 class MyClaysFragment : Fragment(), OnItemListClickListener, View.OnClickListener {
     interface Callbacks {
-        fun onClaySelected(id: Int?)
+        fun onClaySelected(clay: ClayInfo)
     }
 
 
@@ -87,7 +87,7 @@ class MyClaysFragment : Fragment(), OnItemListClickListener, View.OnClickListene
 
     override fun onItemClickListener(clay: ClayInfo) {
         Log.d("@@@@", clay.nameClay)
-        callbacks?.onClaySelected(clay.id)
+        callbacks?.onClaySelected(clay)
 
     }
 

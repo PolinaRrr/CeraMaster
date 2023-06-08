@@ -22,10 +22,10 @@ class ClayTypeConverters {
         return ClayInfo(
             clay?.id,
             clay!!.nameClay,
-            clay!!.CTE,
-            clay!!.maxTemp,
-            clay!!.color,
-            clay!!.massStock
+            clay.CTE,
+            clay.maxTemp,
+            clay.color,
+            clay.massStock
         )
     }
 
