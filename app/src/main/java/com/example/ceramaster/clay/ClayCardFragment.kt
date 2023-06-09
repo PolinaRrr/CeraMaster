@@ -1,6 +1,7 @@
 package com.example.ceramaster.clay
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     ): View {
         _binding = FragmentClayCardBinding.inflate(inflater, container, false)
         binding.buttonSave.setOnClickListener(this)
+        fillLists()
         return binding.root
     }
 
@@ -45,11 +47,10 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //fillLists()
-        if(arguments?.getSerializable(KEY_BUNDLE_CLAY) !== null){
+        if (arguments?.getSerializable(KEY_BUNDLE_CLAY) !== null) {
             clay = arguments?.getSerializable(KEY_BUNDLE_CLAY) as ClayInfo
         }
-
+// а вообще происходит привязка
         val clayCardObserver = Observer<ClayDto?> { t ->
             renderClayInfo(ClayTypeConverters().fromClayDtoNullToClayInfo(t))
         }
@@ -59,7 +60,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     }
 
     private fun renderClayInfo(clay: ClayInfo?) {
-        if(clay !== null){
+        if (clay !== null) {
             binding.clayId.setText(clay.id?.toString())
             binding.textName.setText(clay.nameClay)
             binding.textKtrVal.setText(clay.CTE.toString())
@@ -71,25 +72,29 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         if (checkValidFields()) {
-            clayCardViewModel.saveClayCard(
-                ClayInfo(
-                    binding.clayId.text.toString().toIntOrNull(),
-                    binding.textName.text.toString(),
-                    binding.textKtrVal.text.toString().toDouble(),
-                    binding.textTempVal.text.toString().toInt(),
-                    binding.textColorVal.text.toString(),
-                    binding.textTotalKgVal.text.toString().toDouble()
-                )
-            )
+            saveNewCard()
             Toast.makeText(activity, "Сохранено", Toast.LENGTH_SHORT).show()
             activity?.supportFragmentManager?.beginTransaction()?.replace(
                 R.id.fragment_container,
                 MyClaysFragment.newInstance()
-            )?.addToBackStack("")?.commit()
+            )?.commit()
 
         } else {
             processingValidFields()
         }
+    }
+
+    private fun saveNewCard() {
+        clayCardViewModel.saveClayCard(
+            ClayInfo(
+                binding.clayId.text.toString().toIntOrNull(),
+                binding.textName.text.toString(),
+                binding.textKtrVal.text.toString().toDouble(),
+                binding.textTempVal.text.toString().toInt(),
+                binding.textColorVal.text.toString(),
+                binding.textTotalKgVal.text.toString().toDouble()
+            )
+        )
     }
 
     companion object {
@@ -113,8 +118,14 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
 
     private fun checkValidFieldsClayCard(editText: EditText): Boolean {
         val intMin = minLengthFieldClayCard[editText]
+
         val intMax = maxLengthFieldClayCard[editText]
-        return CheckFieldLength(intMin!!, intMax!!).validate(editText.toString())
+        Log.d(
+            "$$$$$$",
+            CheckFieldLength(intMin!!, intMax!!).validate(editText.toString())
+                .toString() + " min $intMin max $intMax for ${editText.text} $editText "
+        )
+        return CheckFieldLength(intMin, intMax).validate(editText.text.toString())
     }
 
     private fun checkValidFields(): Boolean {
@@ -127,29 +138,34 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         editText.setBackgroundColor(resources.getColor(R.color.red))
     }
 
+    //надо продумать сигнальную систему для подсветки полей
     private fun processingValidFields() {
-        for (i in 1..requiredFieldsClayCard.size) {
-            if (!checkValidFieldsClayCard(requiredFieldsClayCard[i])) {
+        for (i in requiredFieldsClayCard.indices) {
+            if (checkValidFieldsClayCard(requiredFieldsClayCard[i])) {
+                requiredFieldsClayCard[i].setBackgroundColor(resources.getColor(R.color.white))
+
+            } else {
                 selectInvalidFields(requiredFieldsClayCard[i])
             }
         }
     }
 
+    //вообще надо бы нормальные диапозоны значений задать
     private fun fillLists() {
         requiredFieldsClayCard = listOf(
             binding.textName,
             binding.textTempVal,
-            binding.textTempVal
+            binding.textTotalKgVal
         )
         minLengthFieldClayCard = mapOf(
             binding.textName to 3,
             binding.textTempVal to 3,
-            binding.textTempVal to 1
+            binding.textTotalKgVal to 1
         )
         maxLengthFieldClayCard = mapOf(
             binding.textName to 45,
             binding.textTempVal to 4,
-            binding.textTempVal to 4
+            binding.textTotalKgVal to 4
         )
     }
 }

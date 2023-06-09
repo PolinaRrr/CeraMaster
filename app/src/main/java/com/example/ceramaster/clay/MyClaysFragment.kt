@@ -23,7 +23,6 @@ class MyClaysFragment : Fragment(), OnItemListClickListener, View.OnClickListene
         fun onClaySelected(clay: ClayInfo)
     }
 
-
     private var _binding: FragmentMyClaysBinding? = null
     private val binding: FragmentMyClaysBinding
         get() = _binding!!
@@ -35,7 +34,6 @@ class MyClaysFragment : Fragment(), OnItemListClickListener, View.OnClickListene
     private val myClaysListViewModel: MyClaysListViewModel by lazy {
         ViewModelProvider(this)[MyClaysListViewModel::class.java]
     }
-
 
     private var callbacks: Callbacks? = null
 
