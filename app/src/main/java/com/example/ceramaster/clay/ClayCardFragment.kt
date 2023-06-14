@@ -28,6 +28,8 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     private var requiredFieldsClayCard: List<EditText> = listOf()
     private var minLengthFieldClayCard: Map<EditText, Int> = mapOf()
     private var maxLengthFieldClayCard: Map<EditText, Int> = mapOf()
+    private var minValueFieldClayCard: Map<EditText, Int> = mapOf()
+    private var maxValueFieldClayCard: Map<EditText, Int> = mapOf()
 
 
     override fun onCreateView(
@@ -38,6 +40,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         _binding = FragmentClayCardBinding.inflate(inflater, container, false)
         binding.buttonSave.setOnClickListener(this)
         fillLists()
+
         return binding.root
     }
 
@@ -55,7 +58,6 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
             renderClayInfo(ClayTypeConverters().fromClayDtoNullToClayInfo(t))
         }
         clayCardViewModel.clayLiveData.observe(viewLifecycleOwner, clayCardObserver)
-
         renderClayInfo(clay)
     }
 
@@ -89,7 +91,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
             ClayInfo(
                 binding.clayId.text.toString().toIntOrNull(),
                 binding.textName.text.toString(),
-                binding.textKtrVal.text.toString().toDouble(),
+                binding.textKtrVal.text.toString().toDoubleOrNull(),
                 binding.textTempVal.text.toString().toInt(),
                 binding.textColorVal.text.toString(),
                 binding.textTotalKgVal.text.toString().toDouble()
@@ -118,7 +120,6 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
 
     private fun checkValidFieldsClayCard(editText: EditText): Boolean {
         val intMin = minLengthFieldClayCard[editText]
-
         val intMax = maxLengthFieldClayCard[editText]
         Log.d(
             "$$$$$$",
@@ -134,18 +135,20 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
                 && checkValidFieldsClayCard(binding.textTotalKgVal))
     }
 
-    private fun selectInvalidFields(editText: EditText) {
+    private fun highlightingRedInvalidFields(editText: EditText) {
         editText.setBackgroundColor(resources.getColor(R.color.red))
     }
 
-    //надо продумать сигнальную систему для подсветки полей
+    private fun highlightingValidFields(editText: EditText){
+        editText.setBackgroundColor(resources.getColor(R.color.white))
+    }
+
     private fun processingValidFields() {
         for (i in requiredFieldsClayCard.indices) {
             if (checkValidFieldsClayCard(requiredFieldsClayCard[i])) {
-                requiredFieldsClayCard[i].setBackgroundColor(resources.getColor(R.color.white))
-
+                highlightingValidFields(requiredFieldsClayCard[i])
             } else {
-                selectInvalidFields(requiredFieldsClayCard[i])
+                highlightingRedInvalidFields(requiredFieldsClayCard[i])
             }
         }
     }
@@ -167,5 +170,13 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
             binding.textTempVal to 4,
             binding.textTotalKgVal to 4
         )
+        minValueFieldClayCard = mapOf(
+            binding.textTempVal to 650
+        )
+
+        maxValueFieldClayCard = mapOf(
+            binding.textTempVal to 1350
+        )
     }
+
 }
