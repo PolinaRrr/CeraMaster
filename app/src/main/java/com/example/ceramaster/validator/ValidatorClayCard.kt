@@ -5,7 +5,7 @@ import com.example.ceramaster.ValidationCard
 
 class ValidatorClayCard(
     private val params: Map<EditText, Map<String, Int>>,
-    private val valueClayCard: ClayCardValue
+    private val valueClayCard: ClayCardFieldsData
 ) : ValidationCard {
 
 /*
@@ -14,7 +14,7 @@ class ValidatorClayCard(
  */
     override fun validateCard(
         params: Map<EditText, Map<String, Int>>,
-        valueClayCard: ClayCardValue
+        valueClayCard: ClayCardFieldsData
     ): Map<EditText, Boolean> {
 
     params.forEach{}

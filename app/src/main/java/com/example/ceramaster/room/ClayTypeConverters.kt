@@ -1,7 +1,6 @@
 package com.example.ceramaster.room
 
-import androidx.lifecycle.LiveData
-import androidx.room.TypeConverter
+import com.example.ceramaster.validator.ClayCardFieldsData
 import java.util.*
 import com.example.ceramaster.clay.ClayInfo
 
@@ -29,8 +28,13 @@ class ClayTypeConverters {
         )
     }
 
-
-
+    fun fromClayInfoToClayCardFieldsData(clay: ClayInfo): ClayCardFieldsData{
+        return ClayCardFieldsData(
+            clay.nameClay,
+            clay.maxTemperature,
+            clay.massStock
+        )
+    }
 
     fun fromClayInfoToClay(clay: ClayInfo): ClayDto {
         return ClayDto(
