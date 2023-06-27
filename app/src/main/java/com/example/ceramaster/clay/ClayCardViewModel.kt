@@ -26,7 +26,7 @@ class ClayCardViewModel : ViewModel() {
         clayIdLiveData.value = clayId
     }
 
-    private fun validate(fieldsValues: ClayCardFieldsData): Boolean {
+    fun validate(fieldsValues: ClayCardFieldsData): Boolean {
         return ClayCardValidation().validate(
             mapOf(
                 "nameClay" to fieldsValues.nameClay.toString(),
@@ -53,14 +53,14 @@ class ClayCardViewModel : ViewModel() {
             */
     fun saveClayCard(clayInfo: ClayInfo) {
 
-        if (validate(ClayTypeConverters().fromClayInfoToClayCardFieldsData(clayInfo))) {
+      //  if (validate(ClayTypeConverters().fromClayInfoToClayCardFieldsData(clayInfo))) {
             if (clayInfo.id != null) {
                 clayRepository.updateClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
             } else {
                 clayRepository.addClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
             }
-        } else {
-            getListErrorValidation()
-        }
+//        } else {
+//            getListErrorValidation()
+//        }
     }
 }

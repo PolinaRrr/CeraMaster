@@ -16,6 +16,7 @@ import com.example.ceramaster.KEY_BUNDLE_CLAY
 import com.example.ceramaster.room.ClayTypeConverters
 import com.example.ceramaster.room.ClayDto
 import com.example.ceramaster.R
+import com.example.ceramaster.validator.ClayCardFieldsData
 
 
 class ClayCardFragment : Fragment(), View.OnClickListener {
@@ -39,7 +40,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     ): View {
         _binding = FragmentClayCardBinding.inflate(inflater, container, false)
         binding.buttonSave.setOnClickListener(this)
-     //   fillLists()
+        //   fillLists()
 
         return binding.root
     }
@@ -73,17 +74,37 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
-       // if (checkValidFields()) {
-            saveNewCard()
-            Toast.makeText(activity, "Сохранено", Toast.LENGTH_SHORT).show()
-            activity?.supportFragmentManager?.beginTransaction()?.replace(
-                R.id.fragment_container,
-                MyClaysFragment.newInstance()
-            )?.commit()
+        processingFormValidation(
+            validateFieldsForm(
+                ClayCardFieldsData(
+                    binding.clayId.text.toString(),
+                    binding.textTempVal.text.toString().toInt(),
+                    binding.textTotalKgVal.text.toString().toDouble()
+                )
+            )
+        )
+    }
 
-//        } else {
-//            processingValidFields()
-//        }
+    private fun validateFieldsForm(fieldsValues: ClayCardFieldsData): Boolean {
+        return clayCardViewModel.validate(fieldsValues)
+    }
+
+    private fun processingFormValidation(result: Boolean) {
+        if (result) {
+            saveNewCard()
+        } else {
+            for (i in clayCardViewModel.listError.indices) {
+                if (clayCardViewModel.listError[i] == "nameClay") {
+                    highlightingRedInvalidFields(binding.textName)
+                }
+                if (clayCardViewModel.listError[i] == "maxTemp") {
+                    highlightingRedInvalidFields(binding.textName)
+                }
+                if (clayCardViewModel.listError[i] == "massStock") {
+                    highlightingRedInvalidFields(binding.textName)
+                }
+            }
+        }
     }
 
     private fun saveNewCard() {
@@ -96,20 +117,13 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
                 binding.textColorVal.text.toString(),
                 binding.textTotalKgVal.text.toString().toDouble()
             )
+
         )
-        if (clayCardViewModel.listError.isNotEmpty()){
-            for(i in clayCardViewModel.listError.indices){
-                if (clayCardViewModel.listError[i] == "nameClay"){
-                    highlightingRedInvalidFields(binding.textName)
-                }
-                if (clayCardViewModel.listError[i] == "maxTemp"){
-                    highlightingRedInvalidFields(binding.textName)
-                }
-                if (clayCardViewModel.listError[i] == "massStock"){
-                    highlightingRedInvalidFields(binding.textName)
-                }
-            }
-        }
+        Toast.makeText(activity, "Сохранено", Toast.LENGTH_SHORT).show()
+        activity?.supportFragmentManager?.beginTransaction()?.replace(
+            R.id.fragment_container,
+            MyClaysFragment.newInstance()
+        )?.commit()
     }
 
 
@@ -153,7 +167,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         editText.setBackgroundColor(resources.getColor(R.color.red))
     }
 
-    private fun highlightingValidFields(editText: EditText){
+    private fun highlightingValidFields(editText: EditText) {
         editText.setBackgroundColor(resources.getColor(R.color.white))
     }
 
