@@ -17,6 +17,7 @@ import com.example.ceramaster.room.ClayTypeConverters
 import com.example.ceramaster.room.ClayDto
 import com.example.ceramaster.R
 import com.example.ceramaster.validator.ClayCardFieldsData
+import kotlin.math.log
 
 
 class ClayCardFragment : Fragment(), View.OnClickListener {
@@ -73,13 +74,15 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    //вот и хз как быть если стринг нул?!
+
     override fun onClick(p0: View?) {
         processingFormValidation(
             validateFieldsForm(
                 ClayCardFieldsData(
                     binding.clayId.text.toString(),
-                    binding.textTempVal.text.toString().toInt(),
-                    binding.textTotalKgVal.text.toString().toDouble()
+                    binding.textTempVal.text.toString().toIntOrNull(),
+                    binding.textTotalKgVal.text.toString().toDoubleOrNull()
                 )
             )
         )
@@ -93,6 +96,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         if (result) {
             saveNewCard()
         } else {
+           Log.d("LOGCCFRAGMENT","${print(clayCardViewModel.listError)}")
             for (i in clayCardViewModel.listError.indices) {
                 if (clayCardViewModel.listError[i] == "nameClay") {
                     highlightingRedInvalidFields(binding.textName)

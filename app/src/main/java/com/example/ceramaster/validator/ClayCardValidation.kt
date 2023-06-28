@@ -1,5 +1,6 @@
 package com.example.ceramaster.validator
 
+import android.util.Log
 import com.example.ceramaster.Validator
 import com.example.ceramaster.Validation
 import com.example.ceramaster.validationrules.MinLength
@@ -47,6 +48,7 @@ class ClayCardValidation : Validator {
             rules?.forEach { rule ->
                 if (!rule.validate(value)) {
                     result = false
+                    Log.d("LOGCCVALIDATION","$fieldName")
                     list.add(fieldName)
                 }
             }

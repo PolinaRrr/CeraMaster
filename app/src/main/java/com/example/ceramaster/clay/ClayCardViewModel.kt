@@ -1,5 +1,6 @@
 package com.example.ceramaster.clay
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -20,30 +21,35 @@ class ClayCardViewModel : ViewModel() {
         Transformations.switchMap(clayIdLiveData) { clayId ->
             clayRepository.getClay(clayId)
         }
-    var listError = listOf<String>()
+    var listError = ClayCardValidation().list
+
 
     fun loadClayCard(clayId: Int) {
         clayIdLiveData.value = clayId
     }
 
     fun validate(fieldsValues: ClayCardFieldsData): Boolean {
-        return ClayCardValidation().validate(
+        val result = ClayCardValidation().validate(
             mapOf(
                 "nameClay" to fieldsValues.nameClay.toString(),
                 "maxTemp" to fieldsValues.maxTemperature.toString(),
                 "massStock" to fieldsValues.massInStock.toString()
             )
         )
+        fillListErrorValidation()
+        return result
     }
 
-    private fun getListErrorValidation() {
+    private fun fillListErrorValidation() {
         listError = ClayCardValidation().list
+        Log.d("LOGVMODEL", "${print(listError)}")
     }
 
-    private fun isSuccessValid(): Boolean{
-        return true
-
-    }
+//    fun preCheckBeforeSave(result: Boolean) {
+//        if (!result) {
+//            fillListErrorValidation()
+//        }
+//    }
 
     /*
            дергается метод валидации, который передает в аргументе дто ClayCardValue
@@ -53,12 +59,12 @@ class ClayCardViewModel : ViewModel() {
             */
     fun saveClayCard(clayInfo: ClayInfo) {
 
-      //  if (validate(ClayTypeConverters().fromClayInfoToClayCardFieldsData(clayInfo))) {
-            if (clayInfo.id != null) {
-                clayRepository.updateClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
-            } else {
-                clayRepository.addClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
-            }
+        //  if (validate(ClayTypeConverters().fromClayInfoToClayCardFieldsData(clayInfo))) {
+        if (clayInfo.id != null) {
+            clayRepository.updateClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
+        } else {
+            clayRepository.addClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
+        }
 //        } else {
 //            getListErrorValidation()
 //        }
