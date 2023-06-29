@@ -8,7 +8,7 @@ class MinValue(private val minValue: Int) : Validation {
         result = try {
             val value = editText.toInt()
             value > minValue
-        } catch (e: ClassCastException) {
+        } catch (e: NumberFormatException) {
             result
         }
         return result

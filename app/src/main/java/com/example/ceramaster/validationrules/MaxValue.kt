@@ -8,7 +8,7 @@ class MaxValue(private val maxValue: Int) : Validation {
         result = try {
             val value = editText.toInt()
             value < maxValue
-        } catch (e: ClassCastException) {
+        } catch (e: NumberFormatException) {
             false
         }
         return result
