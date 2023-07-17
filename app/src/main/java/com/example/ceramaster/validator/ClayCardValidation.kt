@@ -43,12 +43,17 @@ class ClayCardValidation : Validator {
     override fun validate(data: Map<String, String>): Boolean {
         var result = true
 
+        Log.d("VALIDATION_DATA", data["massStock"] ?: "fucking null")
+
         data.forEach { (fieldName, value) ->
+            Log.d("DEBUG1", fieldName)
             val rules = getRules()[fieldName]
             rules?.forEach { rule ->
+                Log.d("DEBUG2", fieldName)
                 if (!rule.validate(value)) {
+                    Log.d("DEBUG3", fieldName)
                     result = false
-                    Log.d("LOGCCVALIDATION","$fieldName")
+                    Log.d("LOGCCVALIDATION", fieldName)
                     list.add(fieldName)
                 }
             }
