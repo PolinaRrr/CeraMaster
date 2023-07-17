@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
-import com.example.ceramaster.validator.CheckFieldLength
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +16,6 @@ import com.example.ceramaster.room.ClayTypeConverters
 import com.example.ceramaster.room.ClayDto
 import com.example.ceramaster.R
 import com.example.ceramaster.validator.ClayCardFieldsData
-import kotlin.math.log
 
 
 class ClayCardFragment : Fragment(), View.OnClickListener {
@@ -26,12 +24,6 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         get() = _binding!!
 
     private var clay: ClayInfo? = null
-
-//    private var requiredFieldsClayCard: List<EditText> = listOf()
-//    private var minLengthFieldClayCard: Map<EditText, Int> = mapOf()
-//    private var maxLengthFieldClayCard: Map<EditText, Int> = mapOf()
-//    private var minValueFieldClayCard: Map<EditText, Int> = mapOf()
-//    private var maxValueFieldClayCard: Map<EditText, Int> = mapOf()
 
 
     override fun onCreateView(
@@ -98,15 +90,18 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         } else {
            Log.d("LOGCCFRAGMENT","${print(clayCardViewModel.listError)}")
             for (i in clayCardViewModel.listError.indices) {
-                if (clayCardViewModel.listError[i] == "nameClay") {
-                    highlightingRedInvalidFields(binding.textName)
-                }
-                if (clayCardViewModel.listError[i] == "maxTemp") {
-                    highlightingRedInvalidFields(binding.textName)
-                }
-                if (clayCardViewModel.listError[i] == "massStock") {
-                    highlightingRedInvalidFields(binding.textName)
-                }
+                    clayCardViewModel.listError.forEach{ field ->
+                        if (field == "nameClay" ){
+                            highlightingRedInvalidFields(binding.textName)
+                        }
+                        if (field == "maxTemp"){
+                            highlightingRedInvalidFields(binding.textTempVal)
+                        }
+
+                        if (field == "massStock"){
+                            highlightingRedInvalidFields(binding.textTotalKgVal)
+                        }
+                    }
             }
         }
     }

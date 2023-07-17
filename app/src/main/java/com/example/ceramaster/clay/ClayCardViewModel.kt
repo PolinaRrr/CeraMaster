@@ -16,6 +16,7 @@ class ClayCardViewModel : ViewModel() {
 
     private val clayRepository = ClayRepository.get()
     private val clayIdLiveData = MutableLiveData<Int>()
+    private val validator = ClayCardValidation()
 
     var clayLiveData: LiveData<ClayDto?> =
         Transformations.switchMap(clayIdLiveData) { clayId ->
@@ -29,11 +30,11 @@ class ClayCardViewModel : ViewModel() {
     }
 
     fun validate(fieldsValues: ClayCardFieldsData): Boolean {
-        val result = ClayCardValidation().validate(
+        val result = validator.validate(
             mapOf(
-                "nameClay" to fieldsValues.nameClay.toString(),
-                "maxTemp" to fieldsValues.maxTemperature.toString(),
-                "massStock" to fieldsValues.massInStock.toString()
+                "nameClay" to (fieldsValues.nameClay ?: ""),
+                "maxTemp" to (fieldsValues.maxTemperature?.toString() ?: ""),
+                "massStock" to (fieldsValues.massInStock?.toString()  ?: "")
             )
         )
         fillListErrorValidation()
@@ -41,7 +42,7 @@ class ClayCardViewModel : ViewModel() {
     }
 
     private fun fillListErrorValidation() {
-        listError = ClayCardValidation().list
+        listError = validator.list
         Log.d("LOGVMODEL", "${print(listError)}")
     }
 
