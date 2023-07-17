@@ -97,15 +97,15 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
             saveNewCard()
         } else {
            Log.d("LOGCCFRAGMENT","${print(clayCardViewModel.listError)}")
-            for (i in clayCardViewModel.listError.indices) {
-                if (clayCardViewModel.listError[i] == "nameClay") {
+            clayCardViewModel.listError.forEach { field ->
+                if (field == "nameClay") {
                     highlightingRedInvalidFields(binding.textName)
                 }
-                if (clayCardViewModel.listError[i] == "maxTemp") {
-                    highlightingRedInvalidFields(binding.textName)
+                if (field == "maxTemp") {
+                    highlightingRedInvalidFields(binding.textTempVal)
                 }
-                if (clayCardViewModel.listError[i] == "massStock") {
-                    highlightingRedInvalidFields(binding.textName)
+                if (field == "massStock") {
+                    highlightingRedInvalidFields(binding.textTotalKgVal)
                 }
             }
         }
