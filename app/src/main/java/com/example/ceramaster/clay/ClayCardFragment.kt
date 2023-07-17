@@ -33,7 +33,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     ): View {
         _binding = FragmentClayCardBinding.inflate(inflater, container, false)
         binding.buttonSave.setOnClickListener(this)
-        //   fillLists()
+
 
         return binding.root
     }
@@ -47,7 +47,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         if (arguments?.getSerializable(KEY_BUNDLE_CLAY) !== null) {
             clay = arguments?.getSerializable(KEY_BUNDLE_CLAY) as ClayInfo
         }
-// а вообще происходит привязка
+
         val clayCardObserver = Observer<ClayDto?> { t ->
             renderClayInfo(ClayTypeConverters().fromClayDtoNullToClayInfo(t))
         }
@@ -65,8 +65,6 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
             binding.textTotalKgVal.setText(clay.massStock.toString())
         }
     }
-
-    //вот и хз как быть если стринг нул?!
 
     override fun onClick(p0: View?) {
         processingFormValidation(
@@ -88,20 +86,20 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         if (result) {
             saveNewCard()
         } else {
-           Log.d("LOGCCFRAGMENT","${print(clayCardViewModel.listError)}")
+            Log.d("LOGCCFRAGMENT", "${print(clayCardViewModel.listError)}")
             for (i in clayCardViewModel.listError.indices) {
-                    clayCardViewModel.listError.forEach{ field ->
-                        if (field == "nameClay" ){
-                            highlightingRedInvalidFields(binding.textName)
-                        }
-                        if (field == "maxTemp"){
-                            highlightingRedInvalidFields(binding.textTempVal)
-                        }
-
-                        if (field == "massStock"){
-                            highlightingRedInvalidFields(binding.textTotalKgVal)
-                        }
+                clayCardViewModel.listError.forEach { field ->
+                    if (field == "nameClay") {
+                        highlightingRedInvalidFields(binding.textName)
                     }
+                    if (field == "maxTemp") {
+                        highlightingRedInvalidFields(binding.textTempVal)
+                    }
+
+                    if (field == "massStock") {
+                        highlightingRedInvalidFields(binding.textTotalKgVal)
+                    }
+                }
             }
         }
     }
@@ -145,65 +143,11 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
         super.onDestroy()
     }
 
-//    private fun checkValidFieldsClayCard(editText: EditText): Boolean {
-//        val intMin = minLengthFieldClayCard[editText]
-//        val intMax = maxLengthFieldClayCard[editText]
-//        Log.d(
-//            "$$$$$$",
-//            CheckFieldLength(intMin!!, intMax!!).validate(editText.toString())
-//                .toString() + " min $intMin max $intMax for ${editText.text} $editText "
-//        )
-//        return CheckFieldLength(intMin, intMax).validate(editText.text.toString())
-//    }
-
-//    private fun checkValidFields(): Boolean {
-//        return (checkValidFieldsClayCard(binding.textName)
-//                && checkValidFieldsClayCard(binding.textTempVal)
-//                && checkValidFieldsClayCard(binding.textTotalKgVal))
-//    }
 
     private fun highlightingRedInvalidFields(editText: EditText) {
         editText.setBackgroundColor(resources.getColor(R.color.red))
     }
 
-    private fun highlightingValidFields(editText: EditText) {
-        editText.setBackgroundColor(resources.getColor(R.color.white))
-    }
 
-//    private fun processingValidFields() {
-//        for (i in requiredFieldsClayCard.indices) {
-//            if (checkValidFieldsClayCard(requiredFieldsClayCard[i])) {
-//                highlightingValidFields(requiredFieldsClayCard[i])
-//            } else {
-//                highlightingRedInvalidFields(requiredFieldsClayCard[i])
-//            }
-//        }
-//    }
-
-    //вообще надо бы нормальные диапозоны значений задать
-//    private fun fillLists() {
-//        requiredFieldsClayCard = listOf(
-//            binding.textName,
-//            binding.textTempVal,
-//            binding.textTotalKgVal
-//        )
-//        minLengthFieldClayCard = mapOf(
-//            binding.textName to 3,
-//            binding.textTempVal to 3,
-//            binding.textTotalKgVal to 1
-//        )
-//        maxLengthFieldClayCard = mapOf(
-//            binding.textName to 45,
-//            binding.textTempVal to 4,
-//            binding.textTotalKgVal to 4
-//        )
-//        minValueFieldClayCard = mapOf(
-//            binding.textTempVal to 650
-//        )
-//
-//        maxValueFieldClayCard = mapOf(
-//            binding.textTempVal to 1350
-//        )
-//    }
 
 }
