@@ -17,7 +17,6 @@ import com.example.ceramaster.room.ClayDto
 import com.example.ceramaster.R
 import com.example.ceramaster.validator.ClayCardFieldsData
 
-// TODO:   разобраться с скоролом,  почему подтягивается менчю навигации,  изучить стандартную gboard, как изменить размер
 // TODO: прогнать валиацию в карточке глин
 // TODO:  продумать валидацию для остальных карточек
 // TODO: перенести валидацию на все разделы
@@ -37,8 +36,6 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     ): View {
         _binding = FragmentClayCardBinding.inflate(inflater, container, false)
         binding.buttonSave.setOnClickListener(this)
-
-
         return binding.root
     }
 
