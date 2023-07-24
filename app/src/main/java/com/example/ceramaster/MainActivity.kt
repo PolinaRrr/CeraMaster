@@ -6,8 +6,11 @@ import com.example.ceramaster.clay.ClayCardFragment
 import com.example.ceramaster.clay.ClayInfo
 import com.example.ceramaster.databinding.ActivityMainBinding
 import com.example.ceramaster.clay.MyClaysFragment
+import com.example.ceramaster.glaze.GlazeInfo
+import com.example.ceramaster.glaze.MyGlazesFragment
+import com.example.ceramaster.glaze.GlazeCardFragment
 
-class MainActivity : AppCompatActivity(),MyClaysFragment.Callbacks {
+class MainActivity : AppCompatActivity(),MyClaysFragment.Callbacks,MyGlazesFragment.Callbacks {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +57,14 @@ class MainActivity : AppCompatActivity(),MyClaysFragment.Callbacks {
         supportFragmentManager.beginTransaction().replace(
             R.id.fragment_container,
             ClayCardFragment.newInstance(clay))
+            .addToBackStack("")
+            .commit()
+    }
+
+    override fun onClaySelected(glaze: GlazeInfo) {
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fragment_container,
+            GlazeCardFragment.newInstance(glaze))
             .addToBackStack("")
             .commit()
     }
