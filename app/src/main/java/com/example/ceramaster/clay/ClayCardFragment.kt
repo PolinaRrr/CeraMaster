@@ -150,5 +150,4 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
     }
 
 
-
 }
