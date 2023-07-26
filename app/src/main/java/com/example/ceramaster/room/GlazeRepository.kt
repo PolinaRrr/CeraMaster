@@ -14,7 +14,8 @@ class GlazeRepository private constructor(context: Context) {
         context.applicationContext,
         MaterialDatabase::class.java,
         DATABASE_NAME
-    ).build()
+    ).addMigrations(DatabaseMigration().MIGRATION_1_2)
+        .build()
 
     private val glazeDao = database.glazeDao()
     private val executor = Executors.newSingleThreadExecutor()
