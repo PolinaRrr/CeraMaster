@@ -93,7 +93,7 @@ class GlazeCardFragment : Fragment(), View.OnClickListener {
                     if (field == "nameGlaze") {
                         highlightingRedInvalidFields(binding.textNameVal)
                     }
-                    if (field == "maxTemperature") {
+                    if (field == "maxTemp") {
                         highlightingRedInvalidFields(binding.textTempVal)
                     }
 
