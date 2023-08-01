@@ -5,16 +5,18 @@ import androidx.lifecycle.LiveData
 import androidx.room.Room
 import java.lang.IllegalStateException
 import java.util.concurrent.Executors
+import com.example.ceramaster.CeraMasterApp
 
 
 private const val DATABASE_NAME = "material-database"
+//вынести инициализацию базы в апп приложения убрать миграху из репозиториев
 
 class GlazeRepository private constructor(context: Context) {
     private val database: MaterialDatabase = Room.databaseBuilder(
         context.applicationContext,
         MaterialDatabase::class.java,
         DATABASE_NAME
-    ).addMigrations(DatabaseMigration().MIGRATION_1_2)
+    )
         .build()
 
     private val glazeDao = database.glazeDao()

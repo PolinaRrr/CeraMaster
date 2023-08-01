@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity(),MyClaysFragment.Callbacks,MyGlazesFragm
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread{
+            CeraMasterApp.dbInitialize()
+        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (savedInstanceState == null) {
