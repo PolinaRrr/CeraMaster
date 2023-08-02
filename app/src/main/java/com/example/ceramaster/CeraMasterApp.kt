@@ -12,7 +12,7 @@ class CeraMasterApp : Application() {
     override fun onCreate() {
         super.onCreate()
         appContext = this
-
+        dbInitialize()
     }
 
     companion object {
@@ -25,7 +25,7 @@ class CeraMasterApp : Application() {
             )
                 .addMigrations(DatabaseMigration().MIGRATION_1_2)
                 .build()
-            ClayRepository.initialize(appContext as Context)
+            ClayRepository.initialize(db!!)
             GlazeRepository.initialize(appContext as Context)
         }
     }
