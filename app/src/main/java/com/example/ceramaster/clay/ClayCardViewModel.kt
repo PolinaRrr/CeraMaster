@@ -25,14 +25,10 @@ class ClayCardViewModel : ViewModel() {
     var listError = ClayCardValidation().list
 
 
-    fun loadClayCard(clayId: Int) {
-        clayIdLiveData.value = clayId
-    }
-
     fun validate(fieldsValues: ClayCardFieldsData): Boolean {
         val result = validator.validate(
             mapOf(
-                "nameClay" to (fieldsValues.nameClay?.toString() ?: ""),
+                "nameClay" to (fieldsValues.nameClay ?: ""),
                 "maxTemp" to (fieldsValues.maxTemperature?.toString() ?: ""),
                 "massStock" to (fieldsValues.massInStock?.toString() ?: "")
             )
@@ -46,28 +42,14 @@ class ClayCardViewModel : ViewModel() {
         Log.d("LOGVMODEL", "${print(listError)}")
     }
 
-//    fun preCheckBeforeSave(result: Boolean) {
-//        if (!result) {
-//            fillListErrorValidation()
-//        }
-//    }
 
-    /*
-           дергается метод валидации, который передает в аргументе дто ClayCardValue
-           этот метод доджен собрать мапу, где ключ - название поля, значение - ввод пользователя и передает всё это валидатору
-           если валидация успешна - сохранение
-           если нет - лог ошибок через вызов метода для получения этого лога
-            */
     fun saveClayCard(clayInfo: ClayInfo) {
 
-        //  if (validate(ClayTypeConverters().fromClayInfoToClayCardFieldsData(clayInfo))) {
         if (clayInfo.id != null) {
             clayRepository.updateClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
         } else {
             clayRepository.addClay(ClayTypeConverters().fromClayInfoToClay(clayInfo))
         }
-//        } else {
-//            getListErrorValidation()
-//        }
+
     }
 }

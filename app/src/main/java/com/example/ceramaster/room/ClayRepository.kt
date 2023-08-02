@@ -4,9 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import java.lang.IllegalStateException
-import java.util.*
 import java.util.concurrent.Executors
-import com.example.ceramaster.clay.ClayInfo
 
 private const val DATABASE_NAME = "material-database"
 
