@@ -11,13 +11,7 @@ import com.example.ceramaster.CeraMasterApp
 private const val DATABASE_NAME = "material-database"
 //вынести инициализацию базы в апп приложения убрать миграху из репозиториев
 
-class GlazeRepository private constructor(context: Context) {
-    private val database: MaterialDatabase = Room.databaseBuilder(
-        context.applicationContext,
-        MaterialDatabase::class.java,
-        DATABASE_NAME
-    )
-        .build()
+class GlazeRepository private constructor(database: MaterialDatabase) {
 
     private val glazeDao = database.glazeDao()
     private val executor = Executors.newSingleThreadExecutor()
@@ -37,9 +31,9 @@ class GlazeRepository private constructor(context: Context) {
 
     companion object {
         private var INSTANCE: GlazeRepository? = null
-        fun initialize(context: Context) {
+        fun initialize(database: MaterialDatabase) {
             if (INSTANCE == null) {
-                INSTANCE = GlazeRepository(context)
+                INSTANCE = GlazeRepository(database)
             }
         }
 

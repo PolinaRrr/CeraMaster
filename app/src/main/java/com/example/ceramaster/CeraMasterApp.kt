@@ -1,7 +1,6 @@
 package com.example.ceramaster
 
 import android.app.Application
-import android.content.Context
 import androidx.room.Room
 import com.example.ceramaster.room.ClayRepository
 import com.example.ceramaster.room.DatabaseMigration
@@ -12,7 +11,7 @@ class CeraMasterApp : Application() {
     override fun onCreate() {
         super.onCreate()
         appContext = this
-
+        dbInitialize()
     }
 
     companion object {
@@ -22,11 +21,10 @@ class CeraMasterApp : Application() {
         fun dbInitialize() {
             db = Room.databaseBuilder(
                 appContext!!, MaterialDatabase::class.java, "material"
-            )
-                .addMigrations(DatabaseMigration().MIGRATION_1_2)
+            ).addMigrations(DatabaseMigration().MIGRATION_1_2)
                 .build()
-            ClayRepository.initialize(appContext as Context)
-            GlazeRepository.initialize(appContext as Context)
+            ClayRepository.initialize(db!!)
+            GlazeRepository.initialize(db!!)
         }
     }
 }

@@ -8,18 +8,18 @@ class DatabaseMigration {
         override fun migrate(database: SupportSQLiteDatabase){
             database.execSQL(
                 "CREATE TABLE glazes (\n" +
-                        "                id              INT     PRIMARY KEY,\n" +
-                        "                isCommon        BOOLEAN NOT NULL,\n" +
-                        "                nameGlaze       TEXT    NOT NULL,\n" +
+                        "                id              INTEGER     PRIMARY KEY,\n" +
+                        "                isCommon        BOOLEAN ,\n" +
+                        "                nameGlaze       TEXT    ,\n" +
                         "                article         TEXT,\n" +
                         "                countryOriginal TEXT,\n" +
                         "                manufacturer    TEXT,\n" +
-                        "                minTemp         INT,\n" +
-                        "                maxTemp         INT     NOT NULL,\n" +
-                        "                CTE             INT,\n" +
+                        "                minTemp         INTEGER,\n" +
+                        "                maxTemp         INTEGER  ,\n" +
+                        "                CTE             INTEGER,\n" +
                         "                effect          TEXT,\n" +
                         "                color           TEXT,\n" +
-                        "                massStock       DOUBLE  NOT NULL)"
+                        "                massStock       DOUBLE )"
             )
         }
     }

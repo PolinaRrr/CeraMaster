@@ -8,12 +8,7 @@ import java.util.concurrent.Executors
 
 private const val DATABASE_NAME = "material-database"
 
-class ClayRepository private constructor(context: Context) {
-    private val database: MaterialDatabase = Room.databaseBuilder(
-        context.applicationContext,
-        MaterialDatabase::class.java,
-        DATABASE_NAME
-    ).build()
+class ClayRepository private constructor(database: MaterialDatabase) {
 
     private val clayDao = database.clayDao()
     private val executor = Executors.newSingleThreadExecutor()
@@ -33,9 +28,9 @@ class ClayRepository private constructor(context: Context) {
 
     companion object {
         private var INSTANCE: ClayRepository? = null
-        fun initialize(context: Context) {
+        fun initialize(database: MaterialDatabase) {
             if (INSTANCE == null) {
-                INSTANCE = ClayRepository(context)
+                INSTANCE = ClayRepository(database)
             }
         }
 
