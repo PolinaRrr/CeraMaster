@@ -71,7 +71,7 @@ class GlazeCardFragment : Fragment(), View.OnClickListener {
         processingFormValidation(
             validateFieldsForm(
                 GlazeCardFieldsData(
-                    binding.glazeId.text.toString(),
+                    binding.textNameVal.text.toString(),
                     binding.textTempVal.text.toString().toIntOrNull(),
                     binding.textTotalKgVal.text.toString().toDoubleOrNull()
                 )

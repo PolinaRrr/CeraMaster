@@ -39,7 +39,7 @@ class ClayCardViewModel : ViewModel() {
 
     private fun fillListErrorValidation() {
         listError = validator.list
-        Log.d("LOGVMODEL", "${print(listError)}")
+
     }
 
 

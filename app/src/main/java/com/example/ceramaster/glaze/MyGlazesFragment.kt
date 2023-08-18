@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.ceramaster.KEY_BUNDLE_CLAY
 import com.example.ceramaster.R
-import com.example.ceramaster.clay.ClayCardFragment
-import com.example.ceramaster.clay.ClayInfo
-import com.example.ceramaster.clay.MyClaysFragment
-import com.example.ceramaster.clay.MyClaysListViewModel
+import com.example.ceramaster.room.GlazeDto
+import com.example.ceramaster.room.GlazeTypeConverters
 import com.example.ceramaster.databinding.FragmentMyGlazesBinding
 
 class MyGlazesFragment: Fragment(), OnItemListClickListener, View.OnClickListener {
@@ -43,6 +41,14 @@ class MyGlazesFragment: Fragment(), OnItemListClickListener, View.OnClickListene
         getListGazes()
 //        glazeListAdapter.setData(baseGlazes)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val glazeObserver = Observer<List<GlazeDto>>{data ->
+            glazeListAdapter.setData(GlazeTypeConverters().listGlazeDtoToGlazeInfo(data))
+        }
+        myGlazesListViewModel.glazesLiveData.observe(viewLifecycleOwner,glazeObserver)
     }
 
     private fun getListGazes() {

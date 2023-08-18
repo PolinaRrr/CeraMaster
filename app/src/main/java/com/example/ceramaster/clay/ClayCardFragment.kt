@@ -65,18 +65,20 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
             binding.textColorVal.setText(clay.colorClay)
             binding.textTotalKgVal.setText(clay.massStock.toString())
         }
+
     }
 
     override fun onClick(p0: View?) {
         processingFormValidation(
             validateFieldsForm(
                 ClayCardFieldsData(
-                    binding.clayId.text.toString(),
+                    binding.textName.text.toString(),
                     binding.textTempVal.text.toString().toIntOrNull(),
                     binding.textTotalKgVal.text.toString().toDoubleOrNull()
                 )
             )
         )
+
     }
 
     private fun validateFieldsForm(fieldsValues: ClayCardFieldsData): Boolean {
@@ -92,6 +94,7 @@ class ClayCardFragment : Fragment(), View.OnClickListener {
                 clayCardViewModel.listError.forEach { field ->
                     if (field == "nameClay") {
                         highlightingRedInvalidFields(binding.textName)
+
                     }
                     if (field == "maxTemp") {
                         highlightingRedInvalidFields(binding.textTempVal)
